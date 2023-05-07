@@ -2,12 +2,13 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import nz.ac.auckland.se281.Main.Difficulty;
 
 public class Morra {
   private String name;
   private int numberOfRounds = 0;
-  private List<Integer> fingers = new ArrayList<>();
+  private List<Integer> fingerList = new ArrayList<>();
   private int currentFingers;
   private int currentSum;
   private int aiFingers;
@@ -23,7 +24,11 @@ public class Morra {
     // Maybe have to Titlecase the name.
     numberOfRounds = 0;
     currentDifficulty = difficulty;
+    fingerList.clear();
   }
+
+
+  //UNCOMMENT LINE 54 OF CLITEST, FOR THE 10 SECONDS WAIT TIME
 
   public void play() {
     numberOfRounds = numberOfRounds + 1;
@@ -41,10 +46,20 @@ public class Morra {
                 Integer.toString(aiFingers), Integer.toString(aiSum));
             whoWon();
             break;
-          case MEDIUM:
-            
 
-          
+            
+          case MEDIUM:
+          AILevel MEDIUMLevel = AIFactory.createLevel("MEDIUM");
+          if(numberOfRounds > 3){
+            MEDIUMLevel.changeStrategy();
+          }
+          aiFingers = MEDIUMLevel.calculateFinger();
+          aiSum = MEDIUMLevel.calculateSum();
+          MessageCli.PRINT_INFO_HAND.printMessage("Jarvis", 
+              Integer.toString(aiFingers), Integer.toString(aiSum));
+          whoWon();
+          break;
+
           case HARD:
 
           default:
@@ -74,12 +89,13 @@ public class Morra {
     } else {
       currentFingers = Integer.parseInt(inputArray[0]);
       currentSum = Integer.parseInt(inputArray[1]);
-      fingers.add(Integer.parseInt(inputArray[0]));
-      /* System.out.println(currentFingers);
+      fingerList.add(Integer.parseInt(inputArray[0]));
+      System.out.println(currentFingers);
       System.out.println(currentSum);
       // print out the numberOfRounds element of the fingers array
 
-      System.out.println(fingers.get(numberOfRounds - 1)); */
+      /* System.out.println(fingerList.get(numberOfRounds - 1)); 
+      System.out.println(fingerList.size()); */
     }
     return;
   }
@@ -87,16 +103,18 @@ public class Morra {
   public void whoWon(){
     if (currentFingers + aiFingers == currentSum){
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("HUMAN_WINS");
-
     }else if (currentFingers + aiFingers == aiSum){
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("AI_WINS");
-
     }else{
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
-
     }
-
-
   }
 
+  public List<Integer> getFingerList() {
+    return fingerList;
+  }
+
+  public int getNumberOfRounds() {
+    return numberOfRounds;
+  }
 }

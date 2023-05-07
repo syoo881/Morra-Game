@@ -16,6 +16,10 @@ public class SetStrategy {
         strategy.calculateSum();
     }
 
+    public void setStrategy(Strategy strategy) {
+        this.strategy = strategy;
+    }
+
     public int getFingers() {
         return strategy.getFingers();
     }
@@ -24,5 +28,8 @@ public class SetStrategy {
         return strategy.getSum();
     }
 
+    public void changeToAverageStrategy() {
+        setStrategy(new AverageStrategy());
+    }
     
 }

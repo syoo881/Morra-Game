@@ -1,19 +1,25 @@
 package nz.ac.auckland.se281;
 
+
 public class Easy implements AILevel {
 
-    SetStrategy EasyStrat = new SetStrategy(new RandomStrategy()); 
+    SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy()); 
 
     @Override
     public int calculateFinger() {
-        EasyStrat.strategyCalculateFinger();
-        return EasyStrat.getFingers();
+        implementedStrategy.strategyCalculateFinger();
+        return implementedStrategy.getFingers();
     }
 
     @Override
     public int calculateSum() {
-        EasyStrat.strategyCalculateSum();
-        return EasyStrat.getSum();
+        implementedStrategy.strategyCalculateSum();
+        return implementedStrategy.getSum();
+    }
+
+    @Override
+    public void changeStrategy() {
+
     }
     
 }
