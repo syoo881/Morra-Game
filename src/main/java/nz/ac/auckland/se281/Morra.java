@@ -10,6 +10,10 @@ public class Morra {
   private List<Integer> fingers = new ArrayList<>();
   private int currentFingers;
   private int currentSum;
+  private int aiFingers;
+  private int aiSum;
+  private Difficulty currentDifficulty;
+
 
   public Morra() {}
 
@@ -18,16 +22,37 @@ public class Morra {
     MessageCli.WELCOME_PLAYER.printMessage(name);
     // Maybe have to Titlecase the name.
     numberOfRounds = 0;
+    currentDifficulty = difficulty;
   }
 
   public void play() {
     numberOfRounds = numberOfRounds + 1;
     MessageCli.START_ROUND.printMessage(Integer.toString(numberOfRounds));
-
     checkFingerAndSumInput();
-
     MessageCli.PRINT_INFO_HAND.printMessage(
         name, Integer.toString(currentFingers), Integer.toString(currentSum));
+
+        switch(currentDifficulty) {
+          case EASY:
+            AILevel EASYLevel = AIFactory.createLevel("EASY");
+            aiFingers = EASYLevel.calculateFinger();
+            aiSum = EASYLevel.calculateSum();
+            MessageCli.PRINT_INFO_HAND.printMessage("Jarvis", 
+                Integer.toString(aiFingers), Integer.toString(aiSum));
+            whoWon();
+            break;
+          case MEDIUM:
+            
+
+          
+          case HARD:
+
+          default:
+            break;
+            
+        }
+    
+
   }
 
   public void showStats() {}
@@ -50,12 +75,28 @@ public class Morra {
       currentFingers = Integer.parseInt(inputArray[0]);
       currentSum = Integer.parseInt(inputArray[1]);
       fingers.add(Integer.parseInt(inputArray[0]));
-      System.out.println(currentFingers);
+      /* System.out.println(currentFingers);
       System.out.println(currentSum);
       // print out the numberOfRounds element of the fingers array
 
-      System.out.println(fingers.get(numberOfRounds - 1));
+      System.out.println(fingers.get(numberOfRounds - 1)); */
     }
     return;
   }
+
+  public void whoWon(){
+    if (currentFingers + aiFingers == currentSum){
+      MessageCli.PRINT_OUTCOME_ROUND.printMessage("HUMAN_WINS");
+
+    }else if (currentFingers + aiFingers == aiSum){
+      MessageCli.PRINT_OUTCOME_ROUND.printMessage("AI_WINS");
+
+    }else{
+      MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
+
+    }
+
+
+  }
+
 }
