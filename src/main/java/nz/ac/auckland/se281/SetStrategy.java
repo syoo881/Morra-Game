@@ -34,4 +34,7 @@ public class SetStrategy {
         setStrategy(new AverageStrategy());
     }
     
+    public void changeToTopStrategy() {
+        setStrategy(new TopStrategy());
+    }
 }

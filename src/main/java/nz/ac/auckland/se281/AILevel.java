@@ -6,5 +6,6 @@ public interface AILevel {
 
     int calculateFinger();  
     int calculateSum(ArrayList<Integer> fingerList);
-    void changeStrategy();    
+    void changeStrategyToAverage();  
+    void changeStrategyToTop();  
 }

@@ -7,6 +7,12 @@ public class Easy implements AILevel {
     SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy()); 
 
     @Override
+    public void changeStrategyToAverage() {}
+
+    @Override
+    public void changeStrategyToTop() {}
+
+    @Override
     public int calculateFinger() {
         implementedStrategy.strategyCalculateFinger();
         return implementedStrategy.getFingers();
@@ -18,9 +24,6 @@ public class Easy implements AILevel {
         return implementedStrategy.getSum();
     }
 
-    @Override
-    public void changeStrategy() {
-
-    }
+    
     
 }
