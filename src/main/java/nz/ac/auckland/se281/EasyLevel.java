@@ -2,15 +2,12 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 
-public class Medium implements AILevel{
+public class EasyLevel implements aiLevel {
 
-    
-    SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy());
+    private SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy()); 
 
     @Override
-    public void changeStrategyToAverage(){
-        implementedStrategy.changeToAverageStrategy();
-    }
+    public void changeStrategyToAverage() {}
 
     @Override
     public void changeStrategyToTop() {}
@@ -28,5 +25,5 @@ public class Medium implements AILevel{
     }
 
     
-
+    
 }

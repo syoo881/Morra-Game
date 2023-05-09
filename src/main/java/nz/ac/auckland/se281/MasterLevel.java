@@ -2,9 +2,9 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 
-public class Master implements AILevel{
+public class MasterLevel implements aiLevel{
 
-    SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy());
+    private SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy());
 
     @Override
     public void changeStrategyToTop(){

@@ -8,11 +8,11 @@ public class TopStrategy extends Strategy{
 
     @Override
     public void calculateSum(ArrayList<Integer> fingerList) {
-        top = mode(fingerList);
+        top = calculateMode(fingerList);
         sum = top + fingers;
     }
 
-    private int mode(ArrayList<Integer> fingerList) {
+    private int calculateMode(ArrayList<Integer> fingerList) {
         //find the most repeated value of fingerList array
         int maxValue = 0, maxCount = 0;
 

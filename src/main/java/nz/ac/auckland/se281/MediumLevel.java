@@ -2,17 +2,17 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 
-public class Hard implements AILevel {
+public class MediumLevel implements aiLevel{
 
-    SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy());
+    private SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy());
 
     @Override
-    public void changeStrategyToTop(){
-        implementedStrategy.changeToTopStrategy();
+    public void changeStrategyToAverage(){
+        implementedStrategy.changeToAverageStrategy();
     }
 
     @Override
-    public void changeStrategyToAverage() {}
+    public void changeStrategyToTop() {}
 
     @Override
     public int calculateFinger() {
@@ -26,6 +26,6 @@ public class Hard implements AILevel {
         return implementedStrategy.getSum();
     }
 
-
     
+
 }
