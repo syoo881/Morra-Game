@@ -1,5 +1,6 @@
 package nz.ac.auckland.se281;
 
+import java.util.ArrayList;
 
 public class Easy implements AILevel {
 
@@ -12,8 +13,8 @@ public class Easy implements AILevel {
     }
 
     @Override
-    public int calculateSum() {
-        implementedStrategy.strategyCalculateSum();
+    public int calculateSum(ArrayList<Integer> fingerList) {
+        implementedStrategy.strategyCalculateSum(fingerList);
         return implementedStrategy.getSum();
     }
 

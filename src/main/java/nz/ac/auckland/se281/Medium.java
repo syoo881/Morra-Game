@@ -1,8 +1,12 @@
 package nz.ac.auckland.se281;
 
+import java.util.ArrayList;
+
 public class Medium implements AILevel{
-    Morra morra = new Morra();
-    int numberOfRounds = morra.getNumberOfRounds();
+
+    
+    /* Morra morra = new Morra();
+        int numberOfRounds = morra.getNumberOfRounds(); */
     SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy());
 
     @Override
@@ -25,8 +29,8 @@ public class Medium implements AILevel{
     }
 
     @Override
-    public int calculateSum() {
-        implementedStrategy.strategyCalculateSum();
+    public int calculateSum(ArrayList<Integer> fingerList) {
+        implementedStrategy.strategyCalculateSum(fingerList);
         return implementedStrategy.getSum();
     }
 

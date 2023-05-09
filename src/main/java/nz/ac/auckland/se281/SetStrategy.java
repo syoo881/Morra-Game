@@ -1,5 +1,7 @@
 package nz.ac.auckland.se281;
 
+import java.util.ArrayList;
+
 public class SetStrategy {
 
     private Strategy strategy;
@@ -12,8 +14,8 @@ public class SetStrategy {
         strategy.calculateFinger();
     }
 
-    public void strategyCalculateSum() {
-        strategy.calculateSum();
+    public void strategyCalculateSum(ArrayList<Integer> fingerList) {
+        strategy.calculateSum(fingerList);
     }
 
     public void setStrategy(Strategy strategy) {

@@ -7,8 +7,9 @@ import nz.ac.auckland.se281.Main.Difficulty;
 
 public class Morra {
   private String name;
-  private int numberOfRounds = 0;
-  private List<Integer> fingerList = new ArrayList<>();
+  private int numberOfRounds;
+  //Maybe move the fingerList implementation over to the calculateFinger method.
+  private ArrayList<Integer> fingerList;
   private int currentFingers;
   private int currentSum;
   private int aiFingers;
@@ -16,7 +17,9 @@ public class Morra {
   private Difficulty currentDifficulty;
 
 
-  public Morra() {}
+  public Morra() {
+    this.fingerList = new ArrayList<>();
+  }
 
   public void newGame(Difficulty difficulty, int pointsToWin, String[] options) {
     name = options[0];
@@ -41,7 +44,7 @@ public class Morra {
           case EASY:
             AILevel EASYLevel = AIFactory.createLevel("EASY");
             aiFingers = EASYLevel.calculateFinger();
-            aiSum = EASYLevel.calculateSum();
+            aiSum = EASYLevel.calculateSum(this.fingerList);
             MessageCli.PRINT_INFO_HAND.printMessage("Jarvis", 
                 Integer.toString(aiFingers), Integer.toString(aiSum));
             whoWon();
@@ -54,7 +57,9 @@ public class Morra {
             MEDIUMLevel.changeStrategy();
           }
           aiFingers = MEDIUMLevel.calculateFinger();
-          aiSum = MEDIUMLevel.calculateSum();
+
+          //INput this.fingerList into the calculateSum, so that calculateSum can use
+          aiSum = MEDIUMLevel.calculateSum(this.fingerList);
           MessageCli.PRINT_INFO_HAND.printMessage("Jarvis", 
               Integer.toString(aiFingers), Integer.toString(aiSum));
           whoWon();
@@ -110,11 +115,6 @@ public class Morra {
     }
   }
 
-  public List<Integer> getFingerList() {
-    return fingerList;
-  }
-
-  public int getNumberOfRounds() {
-    return numberOfRounds;
-  }
 }
+
+
