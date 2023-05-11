@@ -4,13 +4,15 @@ import java.util.ArrayList;
 
 public class EasyLevel implements aiLevel {
 
-    private SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy()); 
+    private SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy());
 
     @Override
-    public void changeStrategyToAverage() {}
+    public void changeStrategyToAverage() {
+    }
 
     @Override
-    public void changeStrategyToTop() {}
+    public void changeStrategyToTop() {
+    }
 
     @Override
     public int calculateFinger() {
@@ -24,6 +26,4 @@ public class EasyLevel implements aiLevel {
         return implementedStrategy.getSum();
     }
 
-    
-    
 }

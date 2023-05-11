@@ -3,14 +3,14 @@ package nz.ac.auckland.se281;
 public class aiFactory {
 
     public static aiLevel createLevel(String type) {
-        //Creating instances of AI level, based on the type of level selected
+        // Creating instances of AI level, based on the type of level selected
         switch (type) {
             case "EASY":
                 return new EasyLevel();
-             case "MEDIUM":
+            case "MEDIUM":
                 return new MediumLevel();
-             case "HARD":
-                return new HardLevel(); 
+            case "HARD":
+                return new HardLevel();
             case "MASTER":
                 return new MasterLevel();
             default:
@@ -19,4 +19,3 @@ public class aiFactory {
     }
 
 }
-

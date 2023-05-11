@@ -4,8 +4,11 @@ import java.util.ArrayList;
 
 public interface aiLevel {
 
-    int calculateFinger();  
+    int calculateFinger();
+
     int calculateSum(ArrayList<Integer> fingerList);
-    void changeStrategyToAverage();  
-    void changeStrategyToTop();  
+
+    void changeStrategyToAverage();
+
+    void changeStrategyToTop();
 }

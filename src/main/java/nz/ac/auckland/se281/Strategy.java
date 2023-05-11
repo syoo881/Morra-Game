@@ -7,16 +7,18 @@ public abstract class Strategy {
   protected int fingers;
   protected int sum;
 
-  void calculateFinger(){
+  void calculateFinger() {
     fingers = Utils.getRandomNumber(1, 5);
   }
 
-  void calculateSum(ArrayList<Integer> fingerList){};
-  int getFingers(){
+  void calculateSum(ArrayList<Integer> fingerList) {
+  };
+
+  int getFingers() {
     return fingers;
   }
 
-  int getSum(){
+  int getSum() {
     return sum;
   }
 }

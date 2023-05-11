@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class SetStrategy {
 
     private Strategy strategy;
+
     public SetStrategy(Strategy strategy) {
         this.strategy = strategy;
 
@@ -33,7 +34,7 @@ public class SetStrategy {
     public void changeToAverageStrategy() {
         setStrategy(new AverageStrategy());
     }
-    
+
     public void changeToTopStrategy() {
         setStrategy(new TopStrategy());
     }

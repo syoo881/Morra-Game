@@ -7,12 +7,13 @@ public class HardLevel implements aiLevel {
     private SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy());
 
     @Override
-    public void changeStrategyToTop(){
+    public void changeStrategyToTop() {
         implementedStrategy.changeToTopStrategy();
     }
 
     @Override
-    public void changeStrategyToAverage() {}
+    public void changeStrategyToAverage() {
+    }
 
     @Override
     public int calculateFinger() {
@@ -26,6 +27,4 @@ public class HardLevel implements aiLevel {
         return implementedStrategy.getSum();
     }
 
-
-    
 }

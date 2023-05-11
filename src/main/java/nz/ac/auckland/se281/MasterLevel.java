@@ -2,12 +2,12 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 
-public class MasterLevel implements aiLevel{
+public class MasterLevel implements aiLevel {
 
     private SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy());
 
     @Override
-    public void changeStrategyToTop(){
+    public void changeStrategyToTop() {
         implementedStrategy.changeToTopStrategy();
     }
 
@@ -27,5 +27,5 @@ public class MasterLevel implements aiLevel{
         implementedStrategy.strategyCalculateSum(fingerList);
         return implementedStrategy.getSum();
     }
-    
+
 }
