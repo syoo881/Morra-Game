@@ -2,13 +2,13 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 
-public interface aiLevel {
+public interface AiLevel {
 
-    int calculateFinger();
+  int calculateFinger();
 
-    int calculateSum(ArrayList<Integer> fingerList);
+  int calculateSum(ArrayList<Integer> fingerList);
 
-    void changeStrategyToAverage();
+  void changeStrategyToAverage();
 
-    void changeStrategyToTop();
+  void changeStrategyToTop();
 }

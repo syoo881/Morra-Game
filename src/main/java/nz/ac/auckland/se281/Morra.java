@@ -1,7 +1,6 @@
 package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
-
 import nz.ac.auckland.se281.Main.Difficulty;
 
 public class Morra {
@@ -51,42 +50,42 @@ public class Morra {
         name, Integer.toString(currentFingers), Integer.toString(currentSum));
 
     switch (currentDifficulty) {
-      // Easy level just random strategy.
-      // whoWon helper method is called to check who won the round
+        // Easy level just random strategy.
+        // whoWon helper method is called to check who won the round
       case EASY:
-        aiLevel easyLevel = aiFactory.createLevel("EASY");
+        AiLevel easyLevel = AiFactory.createLevel("EASY");
         aiFingers = easyLevel.calculateFinger();
         aiSum = easyLevel.calculateSum(this.fingerList);
-        MessageCli.PRINT_INFO_HAND.printMessage("Jarvis",
-            Integer.toString(aiFingers), Integer.toString(aiSum));
+        MessageCli.PRINT_INFO_HAND.printMessage(
+            "Jarvis", Integer.toString(aiFingers), Integer.toString(aiSum));
         whoWon();
         break;
 
       case MEDIUM:
         // Medium level requires a change in strategy when the number of rounds is
         // greater than 3
-        aiLevel mediumLevel = aiFactory.createLevel("MEDIUM");
+        AiLevel mediumLevel = AiFactory.createLevel("MEDIUM");
         if (numberOfRounds > 3) {
           mediumLevel.changeStrategyToAverage();
         }
         aiFingers = mediumLevel.calculateFinger();
         aiSum = mediumLevel.calculateSum(this.fingerList);
-        MessageCli.PRINT_INFO_HAND.printMessage("Jarvis",
-            Integer.toString(aiFingers), Integer.toString(aiSum));
+        MessageCli.PRINT_INFO_HAND.printMessage(
+            "Jarvis", Integer.toString(aiFingers), Integer.toString(aiSum));
         whoWon();
         break;
 
       case HARD:
         // Hard level requires a change in strategy when the number of rounds is greater
         // than 3
-        aiLevel hardLevel = aiFactory.createLevel("HARD");
+        AiLevel hardLevel = AiFactory.createLevel("HARD");
         if (numberOfRounds > 3) {
           hardLevel.changeStrategyToTop();
         }
         aiFingers = hardLevel.calculateFinger();
         aiSum = hardLevel.calculateSum(this.fingerList);
-        MessageCli.PRINT_INFO_HAND.printMessage("Jarvis",
-            Integer.toString(aiFingers), Integer.toString(aiSum));
+        MessageCli.PRINT_INFO_HAND.printMessage(
+            "Jarvis", Integer.toString(aiFingers), Integer.toString(aiSum));
         whoWon();
         break;
 
@@ -94,7 +93,7 @@ public class Morra {
         // Master level requires multiple changes in different strategy when the number
         // of rounds is greater than 3
         // The top and average strategy also has to change back and forth
-        aiLevel masterLevel = aiFactory.createLevel("MASTER");
+        AiLevel masterLevel = AiFactory.createLevel("MASTER");
         if (numberOfRounds > 3 && numberOfRounds % 2 == 0) {
           masterLevel.changeStrategyToAverage();
         } else if (numberOfRounds > 3 && numberOfRounds % 2 != 0) {
@@ -102,16 +101,14 @@ public class Morra {
         }
         aiFingers = masterLevel.calculateFinger();
         aiSum = masterLevel.calculateSum(this.fingerList);
-        MessageCli.PRINT_INFO_HAND.printMessage("Jarvis",
-            Integer.toString(aiFingers), Integer.toString(aiSum));
+        MessageCli.PRINT_INFO_HAND.printMessage(
+            "Jarvis", Integer.toString(aiFingers), Integer.toString(aiSum));
         whoWon();
         break;
 
       default:
         break;
-
     }
-
   }
 
   public void showStats() {
@@ -120,10 +117,10 @@ public class Morra {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
     }
-    MessageCli.PRINT_PLAYER_WINS.printMessage(name, Integer.toString(humanWin),
-        Integer.toString(pointsToWin - humanWin));
-    MessageCli.PRINT_PLAYER_WINS.printMessage("Jarvis", Integer.toString(aiWin), Integer.toString(pointsToWin - aiWin));
-
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        name, Integer.toString(humanWin), Integer.toString(pointsToWin - humanWin));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        "Jarvis", Integer.toString(aiWin), Integer.toString(pointsToWin - aiWin));
   }
 
   public void checkFingerAndSumInput() {
@@ -163,7 +160,8 @@ public class Morra {
         MessageCli.END_GAME.printMessage(name, Integer.toString(numberOfRounds));
         name = null;
       }
-    } else if ((currentFingers + aiFingers == aiSum) && (currentFingers + aiFingers != currentSum)) {
+    } else if ((currentFingers + aiFingers == aiSum)
+        && (currentFingers + aiFingers != currentSum)) {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("AI_WINS");
       aiWin = aiWin + 1;
       if (aiWin == pointsToWin) {
@@ -175,5 +173,4 @@ public class Morra {
       MessageCli.PRINT_OUTCOME_ROUND.printMessage("DRAW");
     }
   }
-
 }

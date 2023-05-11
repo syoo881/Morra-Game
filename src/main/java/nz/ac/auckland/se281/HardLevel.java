@@ -2,29 +2,27 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 
-public class HardLevel implements aiLevel {
+public class HardLevel implements AiLevel {
 
-    private SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy());
+  private SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy());
 
-    @Override
-    public void changeStrategyToTop() {
-        implementedStrategy.changeToTopStrategy();
-    }
+  @Override
+  public void changeStrategyToTop() {
+    implementedStrategy.changeToTopStrategy();
+  }
 
-    @Override
-    public void changeStrategyToAverage() {
-    }
+  @Override
+  public void changeStrategyToAverage() {}
 
-    @Override
-    public int calculateFinger() {
-        implementedStrategy.strategyCalculateFinger();
-        return implementedStrategy.getFingers();
-    }
+  @Override
+  public int calculateFinger() {
+    implementedStrategy.strategyCalculateFinger();
+    return implementedStrategy.getFingers();
+  }
 
-    @Override
-    public int calculateSum(ArrayList<Integer> fingerList) {
-        implementedStrategy.strategyCalculateSum(fingerList);
-        return implementedStrategy.getSum();
-    }
-
+  @Override
+  public int calculateSum(ArrayList<Integer> fingerList) {
+    implementedStrategy.strategyCalculateSum(fingerList);
+    return implementedStrategy.getSum();
+  }
 }

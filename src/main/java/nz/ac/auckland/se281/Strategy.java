@@ -11,8 +11,8 @@ public abstract class Strategy {
     fingers = Utils.getRandomNumber(1, 5);
   }
 
-  void calculateSum(ArrayList<Integer> fingerList) {
-  };
+  void calculateSum(ArrayList<Integer> fingerList) {}
+  ;
 
   int getFingers() {
     return fingers;
