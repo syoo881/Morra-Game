@@ -2,7 +2,7 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 
-public class MasterLevel implements AiLevel {
+public class MasterLevel implements Levels {
 
   private SetStrategy implementedStrategy = new SetStrategy(new RandomStrategy());
 

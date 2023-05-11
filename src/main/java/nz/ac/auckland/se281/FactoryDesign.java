@@ -1,8 +1,8 @@
 package nz.ac.auckland.se281;
 
-public class AiFactory {
+public class FactoryDesign {
 
-  public static AiLevel createLevel(String type) {
+  public static Levels createLevel(String type) {
     // Creating instances of AI level, based on the type of level selected
     switch (type) {
       case "EASY":

@@ -53,7 +53,7 @@ public class Morra {
         // Easy level just random strategy.
         // whoWon helper method is called to check who won the round
       case EASY:
-        AiLevel easyLevel = AiFactory.createLevel("EASY");
+        Levels easyLevel = FactoryDesign.createLevel("EASY");
         aiFingers = easyLevel.calculateFinger();
         aiSum = easyLevel.calculateSum(this.fingerList);
         MessageCli.PRINT_INFO_HAND.printMessage(
@@ -64,7 +64,7 @@ public class Morra {
       case MEDIUM:
         // Medium level requires a change in strategy when the number of rounds is
         // greater than 3
-        AiLevel mediumLevel = AiFactory.createLevel("MEDIUM");
+        Levels mediumLevel = FactoryDesign.createLevel("MEDIUM");
         if (numberOfRounds > 3) {
           mediumLevel.changeStrategyToAverage();
         }
@@ -78,7 +78,7 @@ public class Morra {
       case HARD:
         // Hard level requires a change in strategy when the number of rounds is greater
         // than 3
-        AiLevel hardLevel = AiFactory.createLevel("HARD");
+        Levels hardLevel = FactoryDesign.createLevel("HARD");
         if (numberOfRounds > 3) {
           hardLevel.changeStrategyToTop();
         }
@@ -93,7 +93,7 @@ public class Morra {
         // Master level requires multiple changes in different strategy when the number
         // of rounds is greater than 3
         // The top and average strategy also has to change back and forth
-        AiLevel masterLevel = AiFactory.createLevel("MASTER");
+        Levels masterLevel = FactoryDesign.createLevel("MASTER");
         if (numberOfRounds > 3 && numberOfRounds % 2 == 0) {
           masterLevel.changeStrategyToAverage();
         } else if (numberOfRounds > 3 && numberOfRounds % 2 != 0) {
