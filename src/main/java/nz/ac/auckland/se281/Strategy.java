@@ -12,7 +12,6 @@ public abstract class Strategy {
   }
 
   void calculateSum(ArrayList<Integer> fingerList) {}
-  ;
 
   int getFingers() {
     return fingers;
