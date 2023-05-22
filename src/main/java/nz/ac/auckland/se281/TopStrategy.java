@@ -14,12 +14,15 @@ public class TopStrategy extends Strategy {
 
   private int calculateMode(ArrayList<Integer> fingerList) {
     // find the most repeated value of fingerList array
-    int maxValue = 0, maxCount = 0;
+    int maxValue = 0;
+    int maxCount = 0;
 
     for (int i = 0; i < fingerList.size(); ++i) {
       int count = 0;
       for (int j = 0; j < fingerList.size(); ++j) {
-        if (fingerList.get(j) == fingerList.get(i)) ++count;
+        if (fingerList.get(j) == fingerList.get(i)) {
+          ++count;
+        }
       }
       if (count > maxCount) {
         maxCount = count;
