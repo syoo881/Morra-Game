@@ -1,4 +1,5 @@
-# Assignment 1
+# Morra game
 
-You will find instructions for this assignment on the course website.
+A morra game built using Java
 
+To run: .\mvnw.cmd clean compile exec:java@run
